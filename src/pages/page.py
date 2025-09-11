@@ -23,7 +23,7 @@ def show_page():
 
     col1, col2, col3, col4 = st.columns(4)
 
-    # Exibindo as métricas nos cartões
+    
     with col1:
         st.metric(label="Total de Corridas", value=total_rides)
     with col2:
