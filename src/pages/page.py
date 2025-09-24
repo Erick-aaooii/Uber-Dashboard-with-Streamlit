@@ -10,6 +10,16 @@ def show_page():
 
     
     df = KPIs.load_data('src/data/ncr_ride_bookings.csv')
+
+    dracula_colors = [
+    "#8be9fd",  # Azul
+    "#50fa7b",  # Verde
+    "#ffb86c",  # Laranja
+    "#ff79c6",  # Rosa
+    "#bd93f9",  # Roxo
+    "#ff5555"   # Vermelho
+    ]
+
     
     total_rides = KPIs.get_total_rides(df)
     completed_rides = KPIs.get_completed_rides(df)
@@ -44,7 +54,7 @@ def show_page():
             x='Hour',
             y='Rides',
             title='Horas de Pico das Corridas',
-            color_discrete_sequence=px.colors.qualitative.Pastel
+            color_discrete_sequence=dracula_colors
         )
         st.plotly_chart(peak_hours_fig, use_container_width=True)
 
@@ -57,7 +67,7 @@ def show_page():
             x='Pickup Location',
             y='Count',
             title='Principais Locais de Pickup',
-            color_discrete_sequence=px.colors.qualitative.Pastel
+            color_discrete_sequence=dracula_colors
         )
         st.plotly_chart(top_pickup_fig, use_container_width=True)
 
@@ -70,7 +80,7 @@ def show_page():
             x='Drop Location',
             y='Count',
             title='Principais Locais de Dropoff',
-            color_discrete_sequence=px.colors.qualitative.Pastel
+            color_discrete_sequence=dracula_colors
         )
         st.plotly_chart(top_dropoff_fig, use_container_width=True)
 
@@ -83,7 +93,7 @@ def show_page():
             values='Count',
             names='Payment Method',
             title='Distribuição dos Métodos de Pagamento',
-            color_discrete_sequence=px.colors.qualitative.Pastel
+            color_discrete_sequence=dracula_colors
         )
         st.plotly_chart(payment_method_fig, use_container_width=True)
 
@@ -96,6 +106,6 @@ def show_page():
             x='Reason',
             y='Count',
             title='Razões de Cancelamento',
-            color_discrete_sequence=px.colors.qualitative.Pastel
+            color_discrete_sequence=dracula_colors
         )
         st.plotly_chart(cancellation_fig, use_container_width=True)
